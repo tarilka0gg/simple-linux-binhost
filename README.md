@@ -37,29 +37,51 @@ The packages for the overlay (GURU) need `~amd64`.
 
 ## Packages
 
+- acct-group/gamemode-0-r2
 - acct-group/seat-0-r1
 - app-misc/fastfetch-2.65.2-r1
+- app-misc/jq-1.8.2
+- app-text/poppler-26.05.0-r1
 - dev-cpp/sdbus-c++-2.3.1
 - dev-libs/appstream-1.0.6
 - dev-libs/libdbusmenu-16.04.0-r4
 - dev-libs/libgrapheme-2.0.2
+- dev-libs/libxml2-compat-2.13.9
 - dev-python/pygments-2.21.0
+- dev-qt/qt5compat-6.11.2
+- dev-qt/qtbase-6.11.2-r2
+- dev-qt/qtdeclarative-6.11.2-r1
+- dev-qt/qttools-6.11.2
+- games-util/gamemode-1.8.2
+- games-util/mangohud-0.8.4
 - gnome-base/gvfs-1.60.3
 - gui-apps/noctalia-5.2.1
 - gui-libs/gtk-4.20.4-r1
 - gui-libs/gtk4-layer-shell-1.1.1-r1
 - gui-wm/niri-26.04
+- kde-frameworks/kwindowsystem-6.29.0
+- media-gfx/exiv2-0.28.9
+- media-gfx/gimp-3.2.4
 - media-gfx/imv-5.0.1
+- media-libs/gegl-0.4.70
+- media-libs/imgui-1.91.6-r1
+- media-libs/implot-0.16-r3
 - media-libs/libjxl-0.12.0
 - media-libs/mesa-26.1.8
+- media-libs/vulkan-loader-1.4.350.0
+- media-plugins/gst-plugins-meta-1.26.11
 - media-video/ffmpeg-compat-7.1.5
+- media-video/mpv-0.41.0-r2
 - media-video/pipewire-1.6.8
+- media-video/vlc-4.0.0_pre20260625
 - media-video/wireplumber-0.5.15
 - net-analyzer/nmap-7.991
 - net-analyzer/traceroute-2.1.5
+- net-im/telegram-desktop-bin-7.1.5
 - net-wireless/iwd-3.12
 - net-wireless/wpa_supplicant-2.11-r4
 - sci-libs/libqalculate-5.10.0
+- sys-apps/dbus-1.16.2
 - sys-apps/ethtool-7.0
 - sys-apps/usbutils-019
 - sys-apps/xdg-desktop-portal-gtk-1.15.3
@@ -76,6 +98,7 @@ The packages for the overlay (GURU) need `~amd64`.
 - x11-libs/libxkbcommon-1.13.2
 - x11-terms/ghostty-1.3.1
 - x11-terms/ghostty-terminfo-1.3.1
+- x11-themes/adw-gtk3-6.5
 - x11-themes/adwaita-icon-theme-50.0
 - xfce-base/exo-4.20.0-r1
 - xfce-base/libxfce4ui-4.20.2
@@ -84,8 +107,18 @@ The packages for the overlay (GURU) need `~amd64`.
 - xfce-base/tumbler-4.20.2
 - xfce-base/xfce4-panel-4.20.8
 
+Two builds of `media-libs/mesa` are in the index: the default one (`VIDEO_CARDS` as above) and one with `virgl`, which a QEMU/virtio-gpu
+machine asks for (a client takes the one whose flags match).
+
 Excluded on purpose: packages whose licence does not allow redistributing binaries (`linux-firmware` is `RESTRICT=bindist`) and the
 build-only toolchains (`rust-bin`, `zig-bin`).
+
+## The tree snapshot
+
+Binary packages are built against one Portage tree; a newer tree has newer versions, no binary for them, and Portage compiles them. So the
+release also carries that tree (`gentoo/` and the GURU overlay, `tree.tar.zst`, from 2026-10-09). The installer unpacks it into `/var/db/repos`
+instead of running `emerge-webrsync`, and falls back to webrsync if the file cannot be fetched. Using the day's tree on a machine installed by
+hand works too, but whatever is newer than the snapshot is compiled.
 
 ## Building and licences
 
