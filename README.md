@@ -41,6 +41,7 @@ The packages for the overlay (GURU) need `~amd64`.
 - acct-group/seat-0-r1
 - app-misc/fastfetch-2.65.2-r1
 - app-misc/jq-1.8.2
+- app-misc/yazi-26.1.22
 - app-text/poppler-26.05.0-r1
 - dev-cpp/sdbus-c++-2.3.1
 - dev-libs/appstream-1.0.6
@@ -55,7 +56,9 @@ The packages for the overlay (GURU) need `~amd64`.
 - games-util/gamemode-1.8.2
 - games-util/mangohud-0.8.4
 - gnome-base/gvfs-1.60.3
+- gui-apps/fuzzel-1.14.1
 - gui-apps/noctalia-5.2.1
+- gui-apps/qt6ct-0.11
 - gui-libs/gtk-4.20.4-r1
 - gui-libs/gtk4-layer-shell-1.1.1-r1
 - gui-wm/niri-26.04
@@ -112,6 +115,10 @@ machine asks for (a client takes the one whose flags match).
 
 Excluded on purpose: packages whose licence does not allow redistributing binaries (`linux-firmware` is `RESTRICT=bindist`) and the
 build-only toolchains (`rust-bin`, `zig-bin`).
+
+## Kernels
+
+The `kernels` release of this repository holds the kernels the Simple Linux installer picks from by hardware profile: `Packages` (one `CPV:` per build), `<combo>.vmlinuz`, `<combo>-modules.tar.xz` and, for NVIDIA builds, `<combo>-devel.tar.xz`, as flat assets (ten builds: generic x86-64 v2/v3 and Raptor Lake). The installer reads them by default; `GENTOO_STORE_BINHOST_URL` points it elsewhere (a web directory with the files under `kernels/` also works). `iso/binhost/publish-kernels.sh` in gentoo-installer publishes a store. The generic builds are made for real hardware (NVMe and SATA built in, no virtio): a VM disk has to be NVMe or SATA.
 
 ## The tree snapshot
 
