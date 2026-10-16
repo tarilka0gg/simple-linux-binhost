@@ -118,7 +118,7 @@ build-only toolchains (`rust-bin`, `zig-bin`).
 
 ## Kernels
 
-The `kernels` release of this repository holds the kernels the Simple Linux installer picks from by hardware profile: `Packages` (one `CPV:` per build), `<combo>.vmlinuz`, `<combo>-modules.tar.xz` and, for NVIDIA builds, `<combo>-devel.tar.xz`, as flat assets (ten builds: generic x86-64 v2/v3 and Raptor Lake). The installer reads them by default; `GENTOO_STORE_BINHOST_URL` points it elsewhere (a web directory with the files under `kernels/` also works). `iso/binhost/publish-kernels.sh` in gentoo-installer publishes a store. The generic builds are made for real hardware (NVMe and SATA built in, no virtio): a VM disk has to be NVMe or SATA.
+The `kernels` release of this repository holds the kernels the Simple Linux installer picks from by hardware profile: `Packages` (one `CPV:` per build), `<combo>.vmlinuz`, `<combo>-modules.tar.xz` and, for NVIDIA builds, `<combo>-devel.tar.xz`, as flat assets (ten builds: generic x86-64 v2/v3 and Raptor Lake). The installer reads them by default; `GENTOO_STORE_BINHOST_URL` points it elsewhere (a web directory with the files under `kernels/` also works). `iso/binhost/publish-kernels.sh` in gentoo-installer publishes a store. The generic builds are made for real hardware (NVMe and SATA built in, no virtio): a VM disk has to be NVMe or SATA. For hardware that none of these ten fits, the installer can build a kernel on the new system from the [kernel-matrix](https://github.com/tarilka0gg/kernel-matrix) (an option on its Optimization page, off by default); that kernel is not published here.
 
 ## The tree snapshot
 
