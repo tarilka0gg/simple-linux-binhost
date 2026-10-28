@@ -46,13 +46,16 @@ The packages for the overlay (GURU) need `~amd64`.
 - dev-cpp/sdbus-c++-2.3.1
 - dev-libs/appstream-1.0.6
 - dev-libs/libdbusmenu-16.04.0-r4
+- dev-libs/libevdev-1.13.6
 - dev-libs/libgrapheme-2.0.2
 - dev-libs/libxml2-compat-2.13.9
+- dev-libs/wayland-1.25.0-r1
 - dev-python/pygments-2.21.0
 - dev-qt/qt5compat-6.11.2
 - dev-qt/qtbase-6.11.2-r2
 - dev-qt/qtdeclarative-6.11.2-r1
 - dev-qt/qttools-6.11.2
+- dev-util/wayland-scanner-1.25.0
 - games-util/gamemode-1.8.2
 - games-util/mangohud-0.8.4
 - gnome-base/gvfs-1.60.3
@@ -90,6 +93,7 @@ The packages for the overlay (GURU) need `~amd64`.
 - sys-apps/xdg-desktop-portal-gtk-1.15.3
 - sys-auth/seatd-0.9.3-r1
 - sys-block/gparted-1.7.0
+- sys-fs/btrfs-progs-7.1
 - sys-fs/ddrescue-1.30
 - sys-fs/exfatprogs-1.4.3
 - sys-fs/lvm2-2.03.39
@@ -98,7 +102,12 @@ The packages for the overlay (GURU) need `~amd64`.
 - sys-fs/udisks-2.11.2
 - sys-process/lsof-4.99.7
 - x11-libs/gtk+-3.24.52
+- x11-libs/libX11-1.8.13
+- x11-libs/libXi-1.8.3
+- x11-libs/libXrender-0.9.12
+- x11-libs/libXtst-1.2.5
 - x11-libs/libxkbcommon-1.13.2
+- x11-misc/compose-tables-1.8.13
 - x11-terms/ghostty-1.3.1
 - x11-terms/ghostty-terminfo-1.3.1
 - x11-themes/adw-gtk3-6.5
@@ -109,6 +118,8 @@ The packages for the overlay (GURU) need `~amd64`.
 - xfce-base/thunar-4.20.10
 - xfce-base/tumbler-4.20.2
 - xfce-base/xfce4-panel-4.20.8
+
+The `libX11`, `libXi`, `libXrender`, `libXtst`, `wayland`, `wayland-scanner`, `libevdev`, `btrfs-progs` and `compose-tables` entries are the versions of the pinned tree snapshot without the 32-bit ABI: Gentoo's own binhost has dropped these versions, so without them an install compiled each of them (about 100 s of a 750 s install in a VM).
 
 Two builds of `media-libs/mesa` are in the index: the default one (`VIDEO_CARDS` as above) and one with `virgl`, which a QEMU/virtio-gpu
 machine asks for (a client takes the one whose flags match).
